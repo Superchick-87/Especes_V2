@@ -2,7 +2,7 @@
 // include ('accesserver.php');
 
 
-include('Apostrophe.php');
+// include('Apostrophe.php');
 try {
   $connexion = new PDO("mysql:host=$serveur;dbname=$database;charset=utf8", $login, $pass);
   $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

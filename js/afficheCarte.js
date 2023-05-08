@@ -118,7 +118,7 @@ function Map(d, s, c, t, w, h, z) {
                 .enter()
                 .append("path")
                 .attr("d", geoPath)
-                .style('fill', '#ffffffbd')
+                .style('fill', '#ffffffde')
                 .style('stroke', 'none')
                 .style('stroke-width', '2')
                 .style('stroke-opacity', '1')

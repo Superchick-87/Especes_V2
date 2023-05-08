@@ -14,42 +14,44 @@
 
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/style2.css">
+  <link href="https://unpkg.com/pattern.css" rel="stylesheet">
   <title>Espèces</title>
 </head>
 
 <body>
-
   <?php
   include(dirname(__FILE__) . '/includes/accesserver.php');
+  include(dirname(__FILE__) . '/includes/Apostrophe.php');
   ?>
-  <form action="getuser.php" method="post">
-    <input id="loc" type="search" value="" name="loc"></br>
-    <div id="recherceDesk">
-      <input id="GoDesk" type="submit" value="RECHERCHER" class="recherceDesk">
-    </div>
-    <div id="recherceMob">
-      <input id="GoMob" type="submit" value="" class="rechercheMob">
-    </div>
-  </form>
-
+  <h1><mark>Ipsum dolor sit amet consectetur</mark></h1>
+  <h3>Rechercher, ipsum dolor sit amet consectetur adipisicing elit.</h3>
+  <?php
+  include(dirname(__FILE__) . '/includes/search.php');
+  ?>
+  <h3>Adipisicing elit. Sit inventore nihil sed ipsam similique obcaecati commodi quas impedit. Ducimus amet veritatis asperiores, tempore officiis odio quidem veniam cum! Voluptas, sit.</h3>
+    <p>Ipsum dolor sit amet consectetur adipisicing elit. Sit inventore nihil sed ipsam similique obcaecati commodi quas impedit.</p>
+    <?php
+  ?>
+  <section id="solutions" style="display: block;">
+  <button class="accordion">- Sources -</button>
+  <div class="panel flex-container">
+    <?php 
+      include(dirname(__FILE__) . '/includes/sources.php');
+    ?>
+		 </div>
+    </section>
 </body>
-
+<script src="js/accordeon.js"></script>
 <script>
   window.onload = autocompletion();
   /* Fonction sert à l'autocompletion */
   function autocompletion() {
     var gpA10 = [<?php echo "'", include(dirname(__FILE__) . '/includes/menu.php'), "'"; ?>];
     console.log(gpA10);
-    $("#loc").autocomplete({
+    $("#locSearch").autocomplete({
       source: gpA10
     });
   };
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
-<!-- <script src="js/card.js"></script> -->
-<!-- <script src="js/camelize.js">
-  camelize()
-</script> -->
-
-
 </html>

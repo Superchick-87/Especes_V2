@@ -1,8 +1,4 @@
-<?php
-header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <html>
@@ -14,7 +10,7 @@ header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="js/1121_jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
 
     <link rel="stylesheet" href="css/jquery-ui.css">
@@ -26,23 +22,26 @@ header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 </head>
 
 <!-- <body class="pattern-dots-sm"> -->
-<body class="fond">
-    <!-- <div class="fond"> -->
-    <?php
+<!-- <body> -->
+    <body>
+    <div class="fond"></div>
+    <div class="content">
+    <div onclick="pause()" id="stop">stop</div>
+        <?php
+       
     include(dirname(__FILE__) . '/includes/accesserver.php');
     include(dirname(__FILE__) . '/includes/ddc.php');
     include(dirname(__FILE__) . '/includes/Apostrophe.php');
-    // include(dirname(__FILE__) . '/includes/search.php');
 
     @$loc = apostropheencode($_POST['loc']);
     @$dep = $_POST['Dep'];
 
-    echo $loc . '<br>';
+    // echo $loc . '<br>';
     $commune = substr($loc, 0, -5);
-    echo $commune . '<br>';
+    // echo $commune . '<br>';
 
     $dep = dep(substr($loc, -4));
-    echo $dep . '<br>';
+    // echo $dep . '<br>';
     /*----------  Connexion à la bdd  ----------*/
     $connexion = new PDO("mysql:host=$serveur;dbname=$database;charset=utf8", $login, $pass);
     $connexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -59,22 +58,26 @@ header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 
     $Rencxx = $connexion->query($longCommune);
     $dataxx = $Rencxx->fetch();
+    echo '<h1><mark>'.$commune.' ipsum dolor sit amet consectetur</mark></h1>
+    ';
+  
 
-    echo "<input id='CodeCommune'  type='text' value=" . $data['CodeCommune'] . ">";
-    echo "<input id='LatCommune'  type='text' value=" . $datax['LatCommune'] . ">";
-    echo "<input id='LongCommune'  type='text' value=" . $dataxx['LongCommune'] . ">";
-    echo "<input id='dep'  type='text' value=" . $dep . ">";
-    echo "<input id='loc'  type='text' value=" . $loc  . ">";
+    echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
+    echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
+    echo "<input id='LongCommune'  style='display:none;' type='text' value=" . $dataxx['LongCommune'] . ">";
+    echo "<input id='dep'  style='display:none;' type='text' value=" . $dep . ">";
+    echo "<input id='loc'  style='display:none;' type='text' value=" . $loc  . ">";
     echo '<div id="viz" class="map" >
         <svg id="map">
         </svg>
     </div>
     <div class="x row dashboard-cards"></div></br>
     <div id="txtHint">
-    </div>';
-
+    <h3>Nouvelle recherche</h3>';
+    include(dirname(__FILE__) . '/includes/search.php');
     ?>
-<!-- </div> -->
+    </div>
+    </div>
 </body>
 
 </html>
@@ -111,8 +114,8 @@ header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
             for (let i = 0; i <= tableau.length - 1; i++) {
                 const matches = document.querySelector('.x');
                 matches.innerHTML +=
-                    '<div   id="' + camelize(tableau[i].nom) + '" class="card col-md-4 ' + camelize(tableau[i].nom) + '">' +
-                    // '<audio id="audio' + i + '" src="media/SON_' + camelize(tableau[i].nom) + '.mp3"></audio>' +
+                '<div onclick="play(' + i + ')"  id="' + camelize(tableau[i].nom) + '" class="card col-md-4 ' + camelize(tableau[i].nom) + '">' +
+                '<audio id="audio' + i + '" src="media/SON_' + camelize(tableau[i].nom) + '.mp3"></audio>' +
                     '<div class="card-title bordHaut ' + camelize(tableau[i].nom) + '">' +
                     '<div style="display:flex;">' +
                     '<img class="picto" src=images/' + camelize(tableau[i].nom) + '.png>' +
@@ -186,16 +189,28 @@ header("Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure");
 <script src="js/camelize.js">
     camelize()
 </script>
-<!-- 
 <script>
-    window.onload = autocompletion();
-    /* Fonction sert à l'autocompletion */
-    function autocompletion() {
-        var gpA10 = [<?php echo "'", include(dirname(__FILE__) . '/includes/menu.php'), "'"; ?>];
-        console.log(gpA10);
-        $("#loc").autocomplete({
-            source: gpA10
-        });
-    };
+  window.onload = autocompletion();
+  /* Fonction sert à l'autocompletion */
+  function autocompletion() {
+    var gpA10 = [<?php echo "'", include(dirname(__FILE__) . '/includes/menu.php'), "'"; ?>];
+    console.log(gpA10);
+    $("#locSearch").autocomplete({
+      source: gpA10
+    });
+  };
 </script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script> -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
+<script>
+    function play(idx) {
+      var audio = document.getElementById("audio" + idx);
+      audio.play();
+    }
+
+    function pause(idx) {
+        var audioStop = document.getElementById("audio" + idx);
+      audioStop.pause();
+    //   audioStop.currentTime = 0;
+    }
+  </script>
