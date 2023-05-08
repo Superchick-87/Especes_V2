@@ -1,0 +1,10 @@
+/* Fonction sert à l'autocompletion */
+
+function autocompletion(a) {
+    var a = [<? php echo "'", include(dirname(__FILE__). '/includes/menu.php'), "'"; ?>];
+    var gpA10 = [a];
+    console.log(gpA10);
+    $("#loc").autocomplete({
+        source: gpA10
+    });
+};

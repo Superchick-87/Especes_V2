@@ -1,0 +1,477 @@
+/*  Imports polices
+  ------------------------------------------------------------------------------------------  */
+/*@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,900&display=swap');*/
+@import url('https://fonts.googleapis.com/css?family=Cabin:400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ultra&display = swap');
+
+/*  Fin Imports polices
+------------------------------------------------------------------------------------------  */
+
+body {
+  text-align: center;
+}
+.fond{
+  background-image: url("../images/fond_mob.png");
+  background-attachment: fixed;
+  z-index: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Bebas+Neue', serif;
+  font-weight: 100;
+}
+
+h3 {
+  font-size: 1.6em;
+  line-height: 0.8em;
+  margin-top: 0px;
+  margin-bottom: 8px;
+}
+
+h4 {
+  font-size: 1.3em;
+  font-weight: 200;
+  line-height: 0.7;
+  color: grey;
+  margin-top: 0px;
+  margin-bottom: 13px;
+}
+legend{
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.filetTitre {
+  border-left: 1px solid;
+  margin: 0px 5px 0px 9px;
+  border-color: black;
+  padding-left: 10px;
+}
+
+.visu {
+  width: 100%;
+  height: 160px;
+  z-index: 0;
+  background-size: cover;
+  background-position: 50% 0%;
+  object-fit: cover;
+  border-radius: 0px 20px 0px 20px;
+}
+
+.picto {
+  width: 70px;
+  height: 70px;
+  /* border-radius: 50%; */
+  z-index: 0;
+  background-size: cover;
+  background-position: 50% 0%;
+  object-fit: cover;
+  /* filter: grayscale(100%);
+  -webkit-filter: grayscale(100%); */
+  /* filter: sepia(100%);
+  -webkit-filter: sepia(100%); */
+}
+
+hr {
+  border-top: 1px dotted black;
+  width: 80%;
+}
+
+p {
+  font-family: 'Roboto', serif;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+/*  Formulaire ------------------------------------------------------------------------------  */
+input[type="button"] {
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 2px solid rgb(60, 57, 57);
+  color: #262424cc;
+}
+
+input[type="search"] {
+  font-size: 1.2rem;
+  width: 300px;
+  height: 35px;
+  background-color: #d6d6d6;
+  border: solid 1px #000;
+  border-radius: 5px;
+  margin: 5px auto;
+  padding: 2px 5px 0px 5px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  /* Remove default */
+  -webkit-appearance: none;
+  /* Now your own custom styles */
+  height: 25px;
+  width: 25px;
+  margin-bottom: 2px;
+  background-size: cover;
+  opacity: 0.5;
+  background-image: url('../images/remove_black.png');
+}
+
+/*  Fin Formulaire ------------------------------------------------------------------------------  */
+
+/* Carte localisation */
+.map{
+  margin: 0px auto;
+  display: block;
+  /* background-color: #0000003d; */
+  border: solid 1px white;
+  border-radius: 10px;
+  width: max-content;
+}
+.locTxt {
+  font-family: 'Roboto', serif;
+  font-size: 14px;
+  /* font-weight: bold; */
+  fill: black;
+}
+
+.locL {
+  text-anchor: end;
+}
+
+.loc {
+  text-anchor: middle;
+}
+
+.locR {
+  text-anchor: start;
+}
+
+/* Fin Carte localisation */
+
+/* Couleur famille */
+.redR {
+  fill: red;
+  stroke: white;
+  stroke-width: 3;
+}
+
+.bordHaut {
+  border-top: 8px solid;
+}
+
+.filet {
+  border-left: 1px solid;
+}
+
+/* .Rhopaloceres,
+.Reptiles,
+.Oiseaux,
+.Amphibiens,
+.Autres,
+.Chiropteres,
+.MammiferesNonVolant,
+.Mollusques,
+.Odonates,
+.Poissons {
+  background-color: #f2e8cfff;
+} */
+
+.Autres {
+  border-color: #386641;
+  background-color: #d7e0d9;
+}
+
+.Amphibiens {
+  border-color: #bc4749;
+  background-color: #eee4e4;
+}
+
+.Chiropteres {
+  border-color: #f6aa1c;
+  background-color: #eee2cc;
+}
+
+.MammiferesNonVolant {
+  border-color: #7c6a0a;
+  background-color: #e5e1ce;
+}
+
+.Mollusques {
+  border-color: #084c61;
+  background-color: #cedbdf;
+}
+
+.Odonates {
+  border-color: #86bbd8;
+  background-color: #e7f1f7;
+}
+
+.Orthopteres {
+  border-color: #e63946;
+  background-color: #fce7e9;
+}
+
+.Poissons {
+  border-color: #3e5c76;
+  background-color: #d8dee4;
+}
+
+.Oiseaux {
+  border-color: #007200;
+  background-color: #cce3cc;
+}
+
+.Reptiles {
+  border-color: #70e000;
+  background-color: #e2f9cc;
+}
+
+.Rhopaloceres {
+  border-color: #ffa30e;
+  background-color: #f2e8cfff;
+}
+
+.Ecrevisses {
+  border-color: #c32f27;
+  background-color: #f3d5d4;
+}
+
+/* background-color: darkgray;
+    border-radius: 10px 10px 0px 0px; */
+/* Fin couleur famille */
+
+/* Recherche */
+.rechercheMob {
+  width: 100px;
+  height: 100px;
+  background-color: #8a8888;
+  border: solid 1px #000;
+  border-radius: 50%;
+  margin: 20px auto 10px;
+  background-image: url(../images/search.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px;
+}
+
+.rechercheMob:hover {
+  background-color: #6c6a6a;
+  color: #6c6a6a;
+}
+
+#recherceDesk {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  #recherceMob {
+    display: none;
+  }
+
+  #recherceDesk {
+    display: block;
+  }
+
+  .recherceDesk {
+    margin: 10px auto;
+    background-color: #8a8888;
+    color: white;
+    border-radius: 8px;
+    height: 34px;
+    width: 158px;
+    font-size: 15px;
+    pointer-events: auto;
+  }
+
+  .recherceDesk:hover {
+    background-color: #6c6a6a;
+    color: white;
+  }
+}
+
+/* Cards */
+.dashboard-cards {
+  position: relative;
+  /*padding-bottom: 50px;*/
+  margin: 0 !important;
+  display: flex;
+  flex-flow: wrap;
+  justify-content: center;
+}
+
+.dashboard-cards {
+  position: relative;
+  padding-bottom: 25px;
+  margin: 0 !important;
+}
+
+.dashboard-cards .card {
+  background: #ffffff;
+  display: inline-block;
+  perspective: 1000;
+  z-index: 20;
+  padding: 0 !important;
+  margin: 5px 5px 10px 5px;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s 0s ease-in;
+  z-index: 1;
+  width: 300px;
+  /*width: calc(33.33333333% - 10px);*/
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dashboard-cards .card:hover {
+  box-shadow: 0 15px 10px -10px rgba(31, 31, 31, 0.5);
+  transition: all 0.3s ease;
+}
+
+.dashboard-cards .card .card-title {
+  /* background: #f1f1f1; */
+  padding: 20px 10px;
+  position: relative;
+  z-index: 0;
+}
+
+.dashboard-cards .card .card-title h2 {
+  font-size: 25px;
+  /*letter-spacing: -0.05em;*/
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-cards .card .card-title h2 small {
+  display: block;
+  font-size: 17px;
+  margin-top: 8px;
+  /*letter-spacing: -0.025em;*/
+  /*font-weight: 200;*/
+  /*  line-height: 1;
+    color: #8b8888;*/
+}
+
+.dashboard-cards .card .card-description {
+  position: relative;
+  font-size: 14px;
+  border-top: 1px solid #ddd;
+  padding: 5px 10px 0 10px;
+}
+
+.dashboard-cards .card .card-actions {
+  box-shadow: 0 2px 0px 0 rgba(0, 0, 0, 0.075);
+  padding: 10px;
+  text-align: center;
+}
+
+.dashboard-cards .card .card-flap {
+  background: #d9d9d9;
+  position: absolute;
+  width: 100%;
+  transform-origin: top;
+  transform: rotateX(-90deg);
+}
+
+.dashboard-cards .card .flap1 {
+  transition: all 0.3s 0.3s ease-out;
+  z-index: -1;
+}
+
+.dashboard-cards .card .flap2 {
+  transition: all 0.3s 0s ease-out;
+  z-index: -2;
+}
+
+.dashboard-cards.showing .card {
+  cursor: pointer;
+  opacity: 0.6;
+  transform: scale(0.6);
+  /*opacity: 0.6;
+    transform: scale(0.92);*/
+}
+
+.dashboard-cards .no-touch .dashboard-cards.showing .card:hover {
+  opacity: 0.94;
+  transform: scale(0.92);
+}
+
+.dashboard-cards .card.d-card-show {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+}
+
+.dashboard-cards .card.d-card-show .card-flap {
+  background: #ffffff;
+  transform: rotateX(0deg);
+}
+
+.dashboard-cards .card.d-card-show .flap1 {
+  transition: all 0.3s 0s ease-out;
+}
+
+.dashboard-cards .card.d-card-show .flap2 {
+  transition: all 0.3s 0.2s ease-out;
+}
+
+.dashboard-cards .card .task-count {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 22px;
+  right: 10px;
+  background: #ecf0f1;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 100%;
+  color: #333333;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.dashboard-cards .task-list {
+  padding: 0 !important;
+}
+
+.dashboard-cards .task-list li {
+  padding: 10px 0;
+  padding-left: 10px;
+  margin: 3px 0;
+  list-style-type: none;
+  border-bottom: 1px solid #e9ebed;
+  /*border-left: 3px solid #f36525;*/
+  transition: all 0.2s ease;
+}
+
+.dashboard-cards .task-list li:hover {
+  background: #ecf0f1;
+  transition: all 0.2s ease;
+}
+
+.dashboard-cards .task-list li span {
+  float: right;
+  color: #f36525;
+  margin-right: 5px;
+}
+
+.dashboard-cards.showing .card.d-card-show .task-count {
+  color: #ffffff;
+  background: #f36525;
+  transition: all 0.2s ease;
+}
+
+.dashboard-cards .card-actions .btn {
+  color: #333;
+}
+
+.dashboard-cards .card-actions .btn:hover {
+  color: #f36525;
+}
