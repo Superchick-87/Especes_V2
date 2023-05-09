@@ -26,12 +26,13 @@
     <body>
     <div class="fond"></div>
     <div class="content">
-    <div onclick="pause()" id="stop">stop</div>
+    
         <?php
        
     include(dirname(__FILE__) . '/includes/accesserver.php');
     include(dirname(__FILE__) . '/includes/ddc.php');
     include(dirname(__FILE__) . '/includes/Apostrophe.php');
+
 
     @$loc = apostropheencode($_POST['loc']);
     @$dep = $_POST['Dep'];
@@ -70,6 +71,10 @@
     echo '<div id="viz" class="map" >
         <svg id="map">
         </svg>
+    </div>
+    <div style="display:flex; justify-content: center;">
+        <input id="stopButton" type="button" value="" class="son sonOn"/>
+        <input id="playButton" type="button" value="" class="son sonOff"/>
     </div>
     <div class="x row dashboard-cards"></div></br>
     <div id="txtHint">
@@ -115,6 +120,7 @@
                 const matches = document.querySelector('.x');
                 matches.innerHTML +=
                 '<div onclick="play(' + i + ')"  id="' + camelize(tableau[i].nom) + '" class="card col-md-4 ' + camelize(tableau[i].nom) + '">' +
+                // '<div onclick="change_mute()" id="stop">stop</div>'+
                 '<audio id="audio' + i + '" src="media/SON_' + camelize(tableau[i].nom) + '.mp3"></audio>' +
                     '<div class="card-title bordHaut ' + camelize(tableau[i].nom) + '">' +
                     '<div style="display:flex;">' +
@@ -146,7 +152,7 @@
                             
                             mat[i].innerHTML +=
                             '<li>' +
-                            "<h3>" + tableau[i].cdref[j].nom_vern + "</h3>" +
+                            "<h3>" + suppArticle(tableau[i].cdref[j].nom_vern) + "</h3>" +
                             "<h4>" + tableau[i].cdref[j].lb_nom + "</h4>" +
                             "<img class='visu' src='" + data2?._embedded?.media[0]?._links?.thumbnailFile?.href + "'>" +
                             "<legend>Photo : " + data2?._embedded?.media[0]?.copyright + "</legend>" +
@@ -189,6 +195,7 @@
 <script src="js/camelize.js">
     camelize()
 </script>
+<script src="js/suppArticle.js">suppArticle()</script>
 <script>
   window.onload = autocompletion();
   /* Fonction sert à l'autocompletion */
@@ -203,14 +210,28 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
 <script>
+    /**
+     * agrège le son
+     */
     function play(idx) {
       var audio = document.getElementById("audio" + idx);
       audio.play();
     }
 
-    function pause(idx) {
-        var audioStop = document.getElementById("audio" + idx);
-      audioStop.pause();
-    //   audioStop.currentTime = 0;
-    }
+    var test = document.getElementById('stopButton');
+    var testp = document.getElementById('playButton');
+
+            testp.style.display = "none";
+            test.addEventListener('click', () => {
+                document.querySelectorAll('audio').forEach(el => el.volume = 0);
+                test.style.display = "none"; 
+                testp.style.display = "block";
+            });
+            
+            testp.addEventListener('click', () => {
+                document.querySelectorAll('audio').forEach(el => el.volume = 1);
+                test.style.display = "block";
+                testp.style.display = "none";
+            });
+
   </script>

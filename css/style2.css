@@ -305,6 +305,31 @@ input[type="search"]::-webkit-search-cancel-button {
   display: none;
 }
 
+/* Son */
+.son{
+  width: 100px;
+  height: 100px;
+  background-color: #ffffffb0;
+  border: solid 1px #000;
+  border-radius: 50%;
+  margin: 20px auto 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70px;
+}
+.sonOn {
+  background-image: url(../images/sonOff.png);
+}
+.sonOff {
+  background-image: url(../images/sonOn.png);
+}
+
+.sonOn:hover {
+  background-color: #ffffff;
+  /* color: #6c6a6a; */
+}
+
+
 @media (min-width: 600px) {
   #recherceMob {
     display: none;

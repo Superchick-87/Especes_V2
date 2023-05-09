@@ -19,6 +19,8 @@
 </head>
 
 <body>
+<div class="fond"></div>
+    <div class="content">
   <?php
   include(dirname(__FILE__) . '/includes/accesserver.php');
   include(dirname(__FILE__) . '/includes/Apostrophe.php');
@@ -40,6 +42,7 @@
     ?>
 		 </div>
     </section>
+    </div>
 </body>
 <script src="js/accordeon.js"></script>
 <script>

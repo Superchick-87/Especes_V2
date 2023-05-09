@@ -4,11 +4,11 @@ function card() {
 
     $("div.card").click(function (e) {
       e.preventDefault();
-
       var isShowing = false;
 
       if ($(this).hasClass("d-card-show")) {
         isShowing = true
+       
       }
 
       if ($("div.dashboard-cards").hasClass("showing")) {
