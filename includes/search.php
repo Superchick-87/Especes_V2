@@ -8,4 +8,3 @@ echo '<form action="getuser.php" method="post">
   <input id="GoMob" type="submit" value="" class="rechercheMob">
 </div>
 </form>';
-?>

@@ -14,7 +14,8 @@ body {
   text-align: center;
   margin: 0px;
 }
-.fond{
+
+.fond {
   background: url("../images/fond_mob.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -23,9 +24,14 @@ body {
   height: 100vh;
   width: 100vw;
 }
+
+.blanc {
+  color: white;
+}
+
 .content {
   position: absolute;
-  left: 50%; 
+  left: 50%;
   /* margin-top: 5rem; */
   transform: translateX(-50%);
   width: 80%;
@@ -55,31 +61,44 @@ h4 {
   margin-top: 0px;
   margin-bottom: 13px;
 }
-legend{
+
+legend {
   margin-bottom: 10px;
   font-style: italic;
 }
-.margeTop{
-margin-top: 8px;
+
+section {
+  margin-bottom: 20px;
 }
-mark{
+
+.margeTop {
+  margin-top: 8px;
+}
+
+mark {
   padding-left: 10px;
-    padding-right: 10px;
-    background-color: yellowgreen;
-    font-size: 1.6em;
+  padding-right: 10px;
+  background-color: yellowgreen;
+  font-size: 1.6em;
 }
-form{
+
+.form {
   background-color: #ffffff8c;
   padding-block: 10px;
   border-radius: 10px;
 }
-p{
+
+
+
+p {
   font-size: 1.2em;
 }
+
 .pattern-dots-sm {
   background-image: radial-gradient(currentColor 0.5px, #cddc39 0.5px);
   background-size: calc(10 * 0.5px) calc(10 * 0.5px);
 }
+
 .filetTitre {
   border-left: 1px solid;
   margin: 0px 5px 0px 9px;
@@ -123,7 +142,8 @@ p {
 }
 
 /*  Formulaire ------------------------------------------------------------------------------  */
-input[type="button"] {
+input[type="button"],
+input[type="submit"] {
   cursor: pointer;
 }
 
@@ -161,14 +181,15 @@ input[type="search"]::-webkit-search-cancel-button {
 /*  Fin Formulaire ------------------------------------------------------------------------------  */
 
 /* Carte localisation */
-.map{
+.map {
   margin: 0px auto;
   display: block;
-  background-color: #0000003d;
+  background-color: #ffffff3d;
   /* border: solid 1px white; */
   border-radius: 10px;
   width: max-content;
 }
+
 .locTxt {
   font-family: 'Roboto', serif;
   font-size: 14px;
@@ -278,27 +299,11 @@ input[type="search"]::-webkit-search-cancel-button {
   background-color: #f3d5d4;
 }
 
-/* background-color: darkgray;
-    border-radius: 10px 10px 0px 0px; */
 /* Fin couleur famille */
 
 /* Recherche */
 .rechercheMob {
-  width: 100px;
-  height: 100px;
-  background-color: #8a8888;
-  border: solid 1px #000;
-  border-radius: 50%;
-  margin: 20px auto 10px;
   background-image: url(../images/search.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 70px;
-}
-
-.rechercheMob:hover {
-  background-color: #6c6a6a;
-  color: #6c6a6a;
 }
 
 #recherceDesk {
@@ -306,25 +311,29 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* Son */
-.son{
-  width: 100px;
-  height: 100px;
+.son,
+.rechercheMob {
+  width: 70px;
+  height: 70px;
   background-color: #ffffffb0;
   border: solid 1px #000;
   border-radius: 50%;
   margin: 20px auto 10px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 70px;
+  background-size: 50px;
 }
+
 .sonOn {
   background-image: url(../images/sonOff.png);
 }
+
 .sonOff {
   background-image: url(../images/sonOn.png);
 }
 
-.sonOn:hover {
+.sonOn:hover,
+.rechercheMob:hover {
   background-color: #ffffff;
   /* color: #6c6a6a; */
 }
@@ -341,8 +350,8 @@ input[type="search"]::-webkit-search-cancel-button {
 
   .recherceDesk {
     margin: 10px auto;
-    background-color: #8a8888;
-    color: white;
+    background-color: #ffffffb0;
+    color: black;
     border-radius: 8px;
     height: 34px;
     width: 158px;
@@ -351,8 +360,7 @@ input[type="search"]::-webkit-search-cancel-button {
   }
 
   .recherceDesk:hover {
-    background-color: #6c6a6a;
-    color: white;
+    background-color: white;
   }
 }
 
@@ -412,10 +420,6 @@ input[type="search"]::-webkit-search-cancel-button {
   display: block;
   font-size: 17px;
   margin-top: 8px;
-  /*letter-spacing: -0.025em;*/
-  /*font-weight: 200;*/
-  /*  line-height: 1;
-    color: #8b8888;*/
 }
 
 .dashboard-cards .card .card-description {
@@ -453,8 +457,6 @@ input[type="search"]::-webkit-search-cancel-button {
   cursor: pointer;
   opacity: 0.6;
   transform: scale(0.92);
-  /*opacity: 0.6;
-    transform: scale(0.92);*/
 }
 
 .dashboard-cards .no-touch .dashboard-cards.showing .card:hover {
@@ -534,55 +536,63 @@ input[type="search"]::-webkit-search-cancel-button {
   color: #f36525;
 }
 
- /*  Accordeon
+/*  Accordeon
   ------------------------------------------------------------------------------------------  */
-  .accordion {
-    color: white;
-    background-color: yellowgreen;
-    /* color: #444; */
-    cursor: pointer;
-    padding: 9px;
-    /*width: 100%;*/
-    border: 1px solid yellowgreen;
-    text-align: center;
-    outline: none;
-    font-size: 15px;
-    line-height: 25px;
-    /*font-weight:inherit; */
-    /* color:#fff; */
-      transition: 0.4s;
-  }
-  .active, .accordion:hover {
-    background-color: rgba(153, 205, 50, 0.616);
-  }
-  .accordion:after {
-    /*content: '\002B';*/
-    color: #fff;
-    /*font-weight: bold;*/
-    float: right;
-    margin-left: 5px;
-  }
-  .active:after {
-    content: "\2212";
-  }
-  .panel {
-    padding: 0 18px;
-    background-color: white;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.2s ease-out;
-  }
-  * {box-sizing: border-box;
-  }
-  .img-magnifier-container {
-    position:relative;
-  }
-  .img-magnifier-glass {
-    position: absolute;
-    /* border: 3px solid #000; */
-    border-radius: 50%;
-    cursor: none;
-    /*Set the size of the magnifier glass:*/
-    width: 100px;
-    height: 100px;
-  }
+.accordion {
+  color: white;
+  background-color: yellowgreen;
+  /* color: #444; */
+  cursor: pointer;
+  padding: 9px;
+  /*width: 100%;*/
+  border: 1px solid yellowgreen;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+  line-height: 25px;
+  /*font-weight:inherit; */
+  /* color:#fff; */
+  transition: 0.4s;
+}
+
+.active,
+.accordion:hover {
+  background-color: rgba(153, 205, 50, 0.616);
+}
+
+.accordion:after {
+  /*content: '\002B';*/
+  color: #fff;
+  /*font-weight: bold;*/
+  float: right;
+  margin-left: 5px;
+}
+
+.active:after {
+  content: "\2212";
+}
+
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.img-magnifier-container {
+  position: relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
+}
