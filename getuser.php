@@ -7,32 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
     <script src="js/1121_jquery-ui.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.8/d3.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.1/d3.min.js"></script>
-
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://unpkg.com/pattern.css" rel="stylesheet">
-
-
     <title>Espèces</title>
 </head>
-
-<!-- <body class="pattern-dots-sm"> -->
-<!-- <body> -->
 
 <body>
     <div class="fond"></div>
     <div class="content">
-
         <?php
-
         include(dirname(__FILE__) . '/includes/accesserver.php');
         include(dirname(__FILE__) . '/includes/ddc.php');
         include(dirname(__FILE__) . '/includes/Apostrophe.php');
-
 
         @$loc = apostropheencode($_POST['loc']);
         @$dep = $_POST['Dep'];
@@ -60,7 +50,6 @@
         $Rencxx = $connexion->query($longCommune);
         $dataxx = $Rencxx->fetch();
         if ($commune == true) {
-
             echo '<h1><mark>' . $commune . ' ipsum dolor sit amet consectetur</mark></h1>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
@@ -110,13 +99,13 @@
         ?>
     </div>
 </section>
-
 </body>
 
 </html>
 <script src="js/afficheCarte.js"></script>
 <script>
     function showData() {
+
         var locCode = document.getElementById('CodeCommune').value;
         if (locCode != "") {
             console.log(locCode);
@@ -140,8 +129,6 @@
                         'cdref': cdref
                     };
                 });
-
-
 
                 for (let i = 0; i <= tableau.length - 1; i++) {
                     const matches = document.querySelector('.x');
@@ -181,10 +168,22 @@
                                 '<li>' +
                                 "<h3>" + suppArticle(tableau[i].cdref[j].nom_vern) + "</h3>" +
                                 "<h4>" + tableau[i].cdref[j].lb_nom + "</h4>" +
-                                "<img class='visu' src='" + data2?._embedded?.media[0]?._links?.thumbnailFile?.href + "'>" +
+                                "<img class='w visu' src='" + data2?._embedded?.media[0]?._links?.thumbnailFile?.href + "'>" +
                                 "<legend>Photo : " + data2?._embedded?.media[0]?.copyright + "</legend>" +
-                                '<p>Enjeu conservation : ' + tableau[i].cdref[j].enjeu_conservation + "</p>" +
-                                "<p>Nombre d/'observation(s) : " + tableau[i].cdref[j].nb_obs + "</p>" +
+
+                                // '<div class="fiche">' +
+                                '<div class="fiche">' +
+                                '<div class="pictoFiche">' +
+                                '<div class="txtFiche">' + tableau[i].cdref[j].enjeu_conservation + '</div>' +
+                                '<div class="obs"></div>' +
+                                '<p>Enjeu conservation</p>' +
+                                '</div>' +
+                                '<div class="pictoFiche">' +
+                                '<div class="txtFiche">' + tableau[i].cdref[j].nb_obs + '</div>' +
+                                '<div class="obs"></div>' +
+                                '<p>Observation(s)</p>' +
+                                '</div>' +
+                                '</div>' +
                                 '</li>' +
                                 '</ul>' +
                                 '</div>' +
@@ -198,13 +197,12 @@
                                 alert("erreur");
                             })
                             .always(function() {
-                                // body...
+                                supp();
                             });
                     };
                 };
                 card();
             };
-
 
             var url = "https://observatoire-fauna.fr/api/sudouest_especes_menacees_autour_ma_commune?commune=" + locCode;
             $.get(url, callBackSuccess).done(function() {})
@@ -216,13 +214,16 @@
                 });
         }
     }
+
     showData();
 </script>
+
 <script src="js/accordeon.js"></script>
 <script src="js/card.js"></script>
 <script src="js/camelize.js">
     camelize()
 </script>
+
 <script src="js/suppArticle.js">
     suppArticle()
 </script>
@@ -285,7 +286,7 @@
     }
 
     /**
-     * met le volume à 0
+     * met le volume à 0 NE FONCTIONNE PAS SR IPHONE
      */
 
     // testp.style.display = "none";
@@ -304,3 +305,27 @@
     //     testp.style.display = "none";
     // });
 </script>
+
+<script>
+    function supp() {
+        var legend = document.querySelectorAll("legend");
+        var image = document.querySelectorAll(".w");
+        // console.log(image.length);
+        for (let g = 0; g < image.length; g++) {
+            if (image[g].src == "https://infographie.sudouest.fr/Especes_V2/undefined") {
+                console.log(image[g].src);
+                image[g].style.display = "none";
+                legend[g].style.display = "none";
+            }
+        }
+    }
+</script>
+
+<!-- Modéré
+Notable
+Fort
+Très fort -> Fort +
+Majeur
+
+Non évalué
+Non applicable -->
