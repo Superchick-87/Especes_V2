@@ -16,7 +16,7 @@ body {
 }
 
 .fond {
-  background: url("../images/fond_mob.png");
+  background: url("../images/fond_mob.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -74,16 +74,51 @@ section {
 .obs {
   width: 50px;
   height: 50px;
-  background-color: orange;
   border-radius: 50%;
   margin-bottom: 5px;
 
 }
+.vues {
+  background-color: #d3d3d3;
+}
+.Majeur {
+  background-color: #ce4257;
+}
+.TresFort {
+  background-color: #fb8500;
+}
+.Fort {
+  background-color: #ffba08;
+}
+.Notable {
+  background-color: #f4d58d;
+}
+.Modere {
+  background-color: #a3b18a;
+}
+.NonApplicable, .NonEvaluee {
+  background-color: #8ecae6;
+}
+.Autre {
+  background-color: #cae9ff;
+}
+.null {
+  background-color: #cae9ff;
+}
+.txtMajeur{
+  color: white;
+}
+.txtTresFort,.txtFort,.txtNotable,.txtModere,
+.txtNonApplicable,
+.txtNonEvaluee,.txtAutre,.null {
+  color: rgb(0, 0, 0);
+}
+
 
 .txtFiche {
   text-align: center;
-  padding-bottom: 24px;
-  font-size: 1.5em;
+  padding-bottom: 27px;
+  font-size: 1.2em;
   position: absolute;
   z-index: 1;
   overflow: visible;
@@ -119,8 +154,6 @@ mark {
   border-radius: 10px;
 }
 
-
-
 p {
   font-size: 1em;
 }
@@ -138,7 +171,7 @@ p {
 }
 
 .visu {
-  width: 100%;
+  width: 97%;
   height: 160px;
   z-index: 0;
   background-size: cover;
@@ -279,7 +312,10 @@ input[type="search"]::-webkit-search-cancel-button {
   border-color: #bc4749;
   background-color: #eee4e4;
 }
-
+.Araignees {
+  border-color: #9b2226;
+  background-color: #fdf0d5;
+}
 .Chiropteres {
   border-color: #f6aa1c;
   background-color: #eee2cc;
@@ -289,7 +325,10 @@ input[type="search"]::-webkit-search-cancel-button {
   border-color: #7c6a0a;
   background-color: #e5e1ce;
 }
-
+.MammiferesMarins {
+  border-color: #005f73;
+  background-color: #def7ff;
+}
 .Mollusques {
   border-color: #084c61;
   background-color: #cedbdf;
@@ -605,10 +644,12 @@ input[type="search"]::-webkit-search-cancel-button {
 
 .panel {
   padding: 0 18px;
-  background-color: white;
+  background-color: #ffffffc7;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
+  width: max-content;
+  margin: 10px auto;
 }
 
 * {

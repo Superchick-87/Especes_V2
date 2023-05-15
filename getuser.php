@@ -49,13 +49,14 @@
 
         $Rencxx = $connexion->query($longCommune);
         $dataxx = $Rencxx->fetch();
+        
         if ($commune == true) {
             echo '<h1><mark>' . $commune . ' ipsum dolor sit amet consectetur</mark></h1>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
-            echo "<input id='LongCommune'  style='display:none;' type='text' value=" . $dataxx['LongCommune'] . ">";
-            echo "<input id='dep'  style='display:none;' type='text' value=" . $dep . ">";
-            echo "<input id='loc'  style='display:none;' type='text' value=" . $loc  . ">";
+            echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
+            echo "<input id='dep'  style='display:none' type='text' value=" . $dep . ">";
+            echo "<input id='loc'  style='display:none;' type='text' value='$commune'>";
             echo '<div id="viz" class="map" >
                 <svg id="map">
                 </svg>
@@ -174,13 +175,13 @@
                                 // '<div class="fiche">' +
                                 '<div class="fiche">' +
                                 '<div class="pictoFiche">' +
-                                '<div class="txtFiche">' + tableau[i].cdref[j].enjeu_conservation + '</div>' +
-                                '<div class="obs"></div>' +
+                                '<div class="txtFiche txt' + camelize(tableau[i].cdref[j].enjeu_conservation) + '">' + tableau[i].cdref[j].enjeu_conservation + '</div>' +
+                                '<div class="obs ' + camelize(tableau[i].cdref[j].enjeu_conservation) + '"></div>' +
                                 '<p>Enjeu conservation</p>' +
                                 '</div>' +
                                 '<div class="pictoFiche">' +
                                 '<div class="txtFiche">' + tableau[i].cdref[j].nb_obs + '</div>' +
-                                '<div class="obs"></div>' +
+                                '<div class="obs vues"></div>' +
                                 '<p>Observation(s)</p>' +
                                 '</div>' +
                                 '</div>' +
@@ -312,7 +313,8 @@
         var image = document.querySelectorAll(".w");
         // console.log(image.length);
         for (let g = 0; g < image.length; g++) {
-            if (image[g].src == "https://infographie.sudouest.fr/Especes_V2/undefined") {
+            // if (image[g].src == "https://infographie.sudouest.fr/Especes_V2/undefined") {
+            if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
                 console.log(image[g].src);
                 image[g].style.display = "none";
                 legend[g].style.display = "none";
