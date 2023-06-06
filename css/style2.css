@@ -78,39 +78,56 @@ section {
   margin-bottom: 5px;
 
 }
+
 .vues {
   background-color: #d3d3d3;
 }
+
 .Majeur {
   background-color: #ce4257;
 }
+
 .TresFort {
   background-color: #fb8500;
 }
+
 .Fort {
   background-color: #ffba08;
 }
+
 .Notable {
   background-color: #f4d58d;
 }
+
 .Modere {
   background-color: #a3b18a;
 }
-.NonApplicable, .NonEvaluee {
+
+.NonApplicable,
+.NonEvaluee {
   background-color: #8ecae6;
 }
+
 .Autre {
   background-color: #cae9ff;
 }
-.null {
+
+.Null {
   background-color: #cae9ff;
 }
-.txtMajeur{
+
+.txtMajeur {
   color: white;
 }
-.txtTresFort,.txtFort,.txtNotable,.txtModere,
+
+.txtTresFort,
+.txtFort,
+.txtNotable,
+.txtModere,
 .txtNonApplicable,
-.txtNonEvaluee,.txtAutre,.null {
+.txtNonEvaluee,
+.txtAutre,
+.txtNull {
   color: rgb(0, 0, 0);
 }
 
@@ -312,10 +329,12 @@ input[type="search"]::-webkit-search-cancel-button {
   border-color: #bc4749;
   background-color: #eee4e4;
 }
+
 .Araignees {
   border-color: #9b2226;
   background-color: #fdf0d5;
 }
+
 .Chiropteres {
   border-color: #f6aa1c;
   background-color: #eee2cc;
@@ -325,10 +344,12 @@ input[type="search"]::-webkit-search-cancel-button {
   border-color: #7c6a0a;
   background-color: #e5e1ce;
 }
+
 .MammiferesMarins {
   border-color: #005f73;
   background-color: #def7ff;
 }
+
 .Mollusques {
   border-color: #084c61;
   background-color: #cedbdf;

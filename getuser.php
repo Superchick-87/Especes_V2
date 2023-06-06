@@ -49,7 +49,7 @@
 
         $Rencxx = $connexion->query($longCommune);
         $dataxx = $Rencxx->fetch();
-        
+
         if ($commune == true) {
             echo '<h1><mark>' . $commune . ' ipsum dolor sit amet consectetur</mark></h1>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
@@ -175,8 +175,8 @@
                                 // '<div class="fiche">' +
                                 '<div class="fiche">' +
                                 '<div class="pictoFiche">' +
-                                '<div class="txtFiche txt' + camelize(tableau[i].cdref[j].enjeu_conservation) + '">' + tableau[i].cdref[j].enjeu_conservation + '</div>' +
-                                '<div class="obs ' + camelize(tableau[i].cdref[j].enjeu_conservation) + '"></div>' +
+                                '<div class="txtFiche txt' + displayNul(tableau[i].cdref[j].enjeu_conservation) + '">' + displayNulTxt(tableau[i].cdref[j].enjeu_conservation) + '</div>' +
+                                '<div class="obs ' + displayNul(tableau[i].cdref[j].enjeu_conservation) + '"></div>' +
                                 '<p>Enjeu conservation</p>' +
                                 '</div>' +
                                 '<div class="pictoFiche">' +
@@ -199,6 +199,7 @@
                             })
                             .always(function() {
                                 supp();
+
                             });
                     };
                 };
@@ -217,6 +218,7 @@
     }
 
     showData();
+    displayNul();
 </script>
 
 <script src="js/accordeon.js"></script>
@@ -308,6 +310,10 @@
 </script>
 
 <script>
+    /**
+     * Sert à supprimer le bloc image
+     * et légende si 'undifined'
+     */
     function supp() {
         var legend = document.querySelectorAll("legend");
         var image = document.querySelectorAll(".w");
@@ -321,6 +327,41 @@
             }
         }
     }
+    /**
+     * Fin
+     */
+
+    /**
+     * Sert à appeler la class Null
+     * quand les données des enjeux
+     * sont null
+     */
+    function displayNul(str) {
+        if (str === null) {
+            return str = 'Null';
+        } else {
+            return camelize(str);
+        }
+    };
+    /**
+     * Fin
+     */
+
+    /**
+     * Sert à afficher Null
+     * quand les données des enjeux
+     * sont null
+     */
+    function displayNulTxt(str) {
+        if (str === null) {
+            return str = 'Null';
+        } else {
+            return str;
+        }
+    };
+    /**
+     * Fin
+     */
 </script>
 
 <!-- Modéré
