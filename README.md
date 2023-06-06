@@ -1,2 +1,2 @@
 # Especes_V2
-Application making an inventory of French biodiversity and geodiversity, knowledge of animal species
+Application making an inventory of biodiversity and geodiversity in New Aquitaine, knowledge of animal species
