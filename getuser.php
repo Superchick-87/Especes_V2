@@ -172,7 +172,11 @@
                                 "<img class='w visu' src='" + data2?._embedded?.media[0]?._links?.thumbnailFile?.href + "'>" +
                                 "<legend>Photo : " + data2?._embedded?.media[0]?.copyright + "</legend>" +
 
-                                // '<div class="fiche">' +
+                                '<div class="menaceBloc">' +
+                                '<img class="menace" src="images/' + tableau[i].cdref[j].categorie_menace + '.svg" alt="' + tableau[i].cdref[j].categorie_menace + '">' +
+                                '<p class="menacext ' + tableau[i].cdref[j].categorie_menace.toUpperCase() + '">' + menace(tableau[i].cdref[j].categorie_menace) + '</p>' +
+                                '</div>' +
+
                                 '<div class="fiche">' +
                                 '<div class="pictoFiche">' +
                                 '<div class="txtFiche txt' + displayNul(tableau[i].cdref[j].enjeu_conservation) + '">' + displayNulTxt(tableau[i].cdref[j].enjeu_conservation) + '</div>' +
@@ -184,6 +188,10 @@
                                 '<div class="obs vues"></div>' +
                                 '<p>Observation(s)</p>' +
                                 '</div>' +
+                                '</div>' +
+                                '<div class="linkBloc">' +
+                                '<img class="menace" src="images/linkFile.svg" alt="Lien vers la fiche">' +
+                                '<input class="linkB" type=button onclick=window.open("' + tableau[i].cdref[j].uri_fiche_espece + '","_blank");  value="Pour aller plus loin avec FAUNA"/>' +
                                 '</div>' +
                                 '</li>' +
                                 '</ul>' +
@@ -362,13 +370,42 @@
     /**
      * Fin
      */
+
+    /**
+     * Sert à afficher Null
+     * quand les données des enjeux
+     * sont null
+     */
+    function menace(str) {
+        if (str === 'EX') {
+            return str = 'Éteint';
+        }
+        if (str === 'EW') {
+            return str = 'Éteint à l\'état sauvage';
+        }
+        if (str === 'CR') {
+            return str = 'En danger critique d\'extinction';
+        }
+        if (str === 'EN') {
+            return str = 'Espèce en danger';
+        }
+        if (str === 'VU') {
+            return str = 'Espèce vulnérable';
+        }
+        if (str === 'NT') {
+            return str = 'Espèce quasi menacée';
+        }
+        if (str === 'LC') {
+            return str = 'Préoccupation mineure';
+        }
+        if (str === 'DD') {
+            return str = 'Données insuffisantes';
+        }
+        if (str === 'NE') {
+            return str = 'Non-Évaluée';
+        }
+    };
+    /**
+     * Fin
+     */
 </script>
-
-<!-- Modéré
-Notable
-Fort
-Très fort -> Fort +
-Majeur
-
-Non évalué
-Non applicable -->

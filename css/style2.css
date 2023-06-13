@@ -71,12 +71,13 @@ section {
   margin-bottom: 20px;
 }
 
+
+
 .obs {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-bottom: 5px;
-
 }
 
 .vues {
@@ -131,6 +132,80 @@ section {
   color: rgb(0, 0, 0);
 }
 
+.linkBloc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+  margin-top: 10px;
+}
+
+.link {
+  width: 30px;
+  margin-right: 2px;
+}
+
+.linkB {
+  border-style: none;
+  background-color: white;
+  padding: 0px;
+}
+
+.menaceBloc {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.menace {
+  width: 30px;
+  margin-bottom: 8px;
+  margin-right: 2px;
+}
+
+.menacext {
+  font-size: 1.2em;
+  padding: 2px 5px 2px 5px;
+}
+
+.EX {
+  background-color: #000000;
+  color: white;
+}
+
+.EW {
+  background-color: #000000;
+  color: white;
+}
+
+.CR {
+  background-color: #cc3233;
+  color: white;
+}
+
+.EN {
+  background-color: #cc6632;
+  color: white;
+}
+
+.VU {
+  background-color: #cc9902;
+  color: white;
+}
+
+.NT {
+  background-color: #006666;
+  color: white;
+}
+
+.LC {
+  background-color: #006666;
+  color: white;
+}
+
+.CD {
+  background-color: #006666;
+  color: white;
+}
 
 .txtFiche {
   text-align: center;
@@ -153,6 +228,8 @@ section {
   display: flex;
   justify-content: space-around;
 }
+
+
 
 .margeTop {
   margin-top: 8px;
