@@ -118,7 +118,7 @@
                 var k = 0;
 
                 Object.keys(data).forEach(key => {
-                    //console.log(key, data[key]);
+                    console.log(key, data[key]);
                     var l = 0;
                     var cdref = new Array();
                     Object.keys(data[key]).forEach(key2 => {
@@ -156,13 +156,13 @@
                         '</div>' +
                         '</div>';
                     var n = 0;
-
                     for (let j = 0; j <= tableau[i].cdref.length - 1; j++) {
                         var url2 = "https://taxref.mnhn.fr/api/taxa/" + tableau[i].cdref[j].cd_ref + "/media";
                         var callBackSuccess2 = function(data2) {
-                            console.log(data2);
+                            // console.log(data2);
                             const mat = document.querySelectorAll('.y');
-                            console.log(tableau[i].cdref[j].cd_ref)
+                            console.log(tableau[i].cdref[j].uri_fiche_espece);
+                            // console.log(tableau[i].cdref[j].cd_ref)
                             // if (tableau[i].cdref[j].enjeu_conservation == 'Très fort') {
 
                             mat[i].innerHTML +=
@@ -338,7 +338,7 @@
      */
     function displayNul(str) {
         if (str === null) {
-            return str = 'Null';
+            return str = 'NonEvaluee';
         } else {
             return camelize(str);
         }
@@ -354,7 +354,7 @@
      */
     function displayNulTxt(str) {
         if (str === null) {
-            return str = 'Null';
+            return str = 'Non évaluée';
         } else {
             return str;
         }
