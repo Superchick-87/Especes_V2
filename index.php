@@ -19,30 +19,31 @@
 </head>
 
 <body>
-<div class="fond"></div>
-    <div class="content">
-  <?php
-  include(dirname(__FILE__) . '/includes/accesserver.php');
-  include(dirname(__FILE__) . '/includes/Apostrophe.php');
-  ?>
-  <h1><mark>Ipsum dolor sit amet consectetur</mark></h1>
-  <h3>Rechercher, ipsum dolor sit amet consectetur adipisicing elit.</h3>
-  <?php
-  include(dirname(__FILE__) . '/includes/search.php');
-  ?>
-  <h3>Adipisicing elit. Sit inventore nihil sed ipsam similique obcaecati commodi quas impedit. Ducimus amet veritatis asperiores, tempore officiis odio quidem veniam cum! Voluptas, sit.</h3>
+  <div class="fond"></div>
+  <div class="content">
+    <?php
+    include(dirname(__FILE__) . '/includes/accesserver.php');
+    include(dirname(__FILE__) . '/includes/Apostrophe.php');
+    ?>
+    <h1><mark>Ipsum dolor sit amet consectetur</mark></h1>
+    <h3>Découvrez les espèces observées par les chercheurs dans un rayon de 5 km autour de la commune depuis janvier 2000.</h3>
+    </br>
+    <h3>Rechercher ndndnnd</h3>
+    <?php
+    include(dirname(__FILE__) . '/includes/search.php');
+    ?>
     <p>Ipsum dolor sit amet consectetur adipisicing elit. Sit inventore nihil sed ipsam similique obcaecati commodi quas impedit.</p>
     <?php
-  ?>
-  <section id="solutions" style="display: block;">
-  <button class="accordion">- Sources -</button>
-  <div class="panel flex-container">
-    <?php 
-      include(dirname(__FILE__) . '/includes/sources.php');
     ?>
-		 </div>
+    <section id="solutions" style="display: block;">
+      <button class="accordion">- Sources -</button>
+      <div class="panel flex-container">
+        <?php
+        include(dirname(__FILE__) . '/includes/sources.php');
+        ?>
+      </div>
     </section>
-    </div>
+  </div>
 </body>
 <script src="js/accordeon.js"></script>
 <script>
@@ -57,4 +58,5 @@
   };
 </script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+
 </html>

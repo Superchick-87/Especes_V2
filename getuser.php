@@ -127,11 +127,19 @@
                         // console.log(key,key2, data[key][key2]);
                         cdref[l++] = data[key][key2];
                     })
+
+                    console.log(cdref)
                     tableau[k++] = {
                         'nom': key,
-                        'cdref': cdref
+                        'cdref': cdref.sort(function(a, b) {
+                            return b.nb_obs - a.nb_obs;
+                        })
                     };
+                    // tableau[k++] = {
+                    //     'nom': key,
+                    //     'cdref': cdref
                 });
+
 
                 for (let i = 0; i <= tableau.length - 1; i++) {
                     const matches = document.querySelector('.x');
@@ -153,7 +161,7 @@
                         '</div>' +
                         '<div class="card-flap flap2">' +
                         '<div class="card-actions">' +
-                        '<a class="btn" href="#">Fermer</a>' +
+                        '<a class="btn" href="#">Replier</a>' +
                         '</div>' +
                         '</div>' +
                         '<div style="height:70px;">' +
@@ -165,9 +173,10 @@
                         var callBackSuccess2 = function(data2) {
                             // console.log(data2);
                             const mat = document.querySelectorAll('.y');
-                            console.log(tableau[i].cdref[j].uri_fiche_espece);
+                            // console.log(tableau[i].cdref[j].uri_fiche_espece);
                             // console.log(tableau[i].cdref[j].cd_ref)
                             // if (tableau[i].cdref[j].enjeu_conservation == 'Très fort') {
+
 
                             mat[i].innerHTML +=
                                 '<li>' +
