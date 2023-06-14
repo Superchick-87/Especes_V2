@@ -51,7 +51,8 @@
         $dataxx = $Rencxx->fetch();
 
         if ($commune == true) {
-            echo '<h1><mark>' . $commune . ' ipsum dolor sit amet consectetur</mark></h1>';
+            echo '<h2><mark>Les espèces observées près de ' . $commune . '</mark></h2>';
+            echo '<h5>Découvrez les espèces observées par les chercheurs dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
@@ -67,11 +68,12 @@
     </div>
     <div class="x row dashboard-cards"></div></br>
     <div id="txtHint">
-    <h3 class="blanc">Nouvelle recherche</h3>';
+    <h3 class="blanc">Changer de commune</h3>';
             include(dirname(__FILE__) . '/includes/search.php');
         ?>
     </div>
     </br>
+    <p class="avSource">Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
     <section id="solutions" style="display: block;">
         <button class="accordion">Sources</button>
         <div class="panel flex-container">
@@ -154,6 +156,8 @@
                         '<a class="btn" href="#">Fermer</a>' +
                         '</div>' +
                         '</div>' +
+                        '<div style="height:70px;">' +
+                        '</div>' +
                         '</div>';
                     var n = 0;
                     for (let j = 0; j <= tableau[i].cdref.length - 1; j++) {
@@ -181,7 +185,7 @@
                                 '<div class="pictoFiche">' +
                                 '<div class="txtFiche txt' + displayNul(tableau[i].cdref[j].enjeu_conservation) + '">' + displayNulTxt(tableau[i].cdref[j].enjeu_conservation) + '</div>' +
                                 '<div class="obs ' + displayNul(tableau[i].cdref[j].enjeu_conservation) + '"></div>' +
-                                '<p>Enjeu conservation</p>' +
+                                '<p>Enjeu de conservation</p>' +
                                 '</div>' +
                                 '<div class="pictoFiche">' +
                                 '<div class="txtFiche">' + tableau[i].cdref[j].nb_obs + '</div>' +
@@ -203,7 +207,7 @@
 
                         $.get(url2, callBackSuccess2).done(function() {})
                             .fail(function() {
-                                alert("erreur");
+                                // alert("erreur");
                             })
                             .always(function() {
                                 supp();
@@ -327,8 +331,9 @@
         var image = document.querySelectorAll(".w");
         // console.log(image.length);
         for (let g = 0; g < image.length; g++) {
-            // if (image[g].src == "https://infographie.sudouest.fr/Especes_V2/undefined") {
-            if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
+            if (image[g].src == "https://infographie.sudouest.fr/Especes/undefined") {
+                // if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
+                // if (image[g].src == "https://superchick.fr/Especes/undefined") {
                 console.log(image[g].src);
                 image[g].style.display = "none";
                 legend[g].style.display = "none";
@@ -408,4 +413,37 @@
     /**
      * Fin
      */
+
+
+
+
+    // function mergeSort(arr) {
+    //     if (arr.length <= 1) {
+    //         return arr;
+    //     }
+
+    //     const middle = Math.floor(arr.length / 2);
+    //     const left = arr.slice(0, middle);
+    //     const right = arr.slice(middle);
+
+    //     return merge(mergeSort(left), mergeSort(right));
+    // }
+
+    // function merge(left, right) {
+    //     let result = [];
+    //     let leftIndex = 0;
+    //     let rightIndex = 0;
+
+    //     while (leftIndex < left.length && rightIndex < right.length) {
+    //         if (left[leftIndex] < right[rightIndex]) {
+    //             result.push(left[leftIndex]);
+    //             leftIndex++;
+    //         } else {
+    //             result.push(right[rightIndex]);
+    //             rightIndex++;
+    //         }
+    //     }
+
+    //     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
+    // }
 </script>
