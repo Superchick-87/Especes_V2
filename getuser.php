@@ -52,7 +52,7 @@
 
         if ($commune == true) {
             echo '<h2><mark>Les espèces observées près de ' . $commune . '</mark></h2>';
-            echo '<h5>Découvrez les espèces observées par les chercheurs dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
+            echo '<h5>Dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
