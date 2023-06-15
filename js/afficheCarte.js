@@ -4,10 +4,10 @@ var LatCommune = document.getElementById('LatCommune').value;
 var LongCommune = document.getElementById('LongCommune').value;
 var dep = document.getElementById('dep').value;
 
-console.log(commune);
-console.log(dep);
-console.log(LatCommune);
-console.log(LongCommune);
+// console.log(commune);
+// console.log(dep);
+// console.log(LatCommune);
+// console.log(LongCommune);
 selectMap(dep);
 function selectMap(a) {
     if (a === '16') {

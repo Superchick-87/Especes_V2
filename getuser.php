@@ -111,7 +111,7 @@
 
         var locCode = document.getElementById('CodeCommune').value;
         if (locCode != "") {
-            console.log(locCode);
+            // console.log(locCode);
 
             var callBackSuccess = function(data) {
                 console.log(data);
@@ -120,7 +120,7 @@
                 var k = 0;
 
                 Object.keys(data).forEach(key => {
-                    console.log(key, data[key]);
+                    // console.log(key, data[key]);
                     var l = 0;
                     var cdref = new Array();
                     Object.keys(data[key]).forEach(key2 => {
@@ -128,7 +128,6 @@
                         cdref[l++] = data[key][key2];
                     })
 
-                    console.log(cdref)
                     tableau[k++] = {
                         'nom': key,
                         'cdref': cdref.sort(function(a, b) {
@@ -138,7 +137,9 @@
                     // tableau[k++] = {
                     //     'nom': key,
                     //     'cdref': cdref
+                    // };
                 });
+                console.log(tableau)
 
 
                 for (let i = 0; i <= tableau.length - 1; i++) {
@@ -146,7 +147,7 @@
                     matches.innerHTML +=
                         '<div onclick="play(' + i + ')"  id="' + camelize(tableau[i].nom) + '" class="card col-md-4 ' + camelize(tableau[i].nom) + '">' +
                         // '<div onclick="change_mute()" id="stop">stop</div>'+
-                        '<audio loop id="audio' + i + '" src="media/SON_' + camelize(tableau[i].nom) + '.mp3"></audio>' +
+                        '<audio id="audio' + i + '" src="media/SON_' + camelize(tableau[i].nom) + '.mp3"></audio>' +
                         '<div class="card-title bordHaut ' + camelize(tableau[i].nom) + '">' +
                         '<div style="display:flex;">' +
                         '<img class="picto" src=images/' + camelize(tableau[i].nom) + '.png>' +
@@ -180,8 +181,8 @@
 
                             mat[i].innerHTML +=
                                 '<li>' +
-                                "<h3>" + suppArticle(tableau[i].cdref[j].nom_vern) + "</h3>" +
-                                "<h4>" + tableau[i].cdref[j].lb_nom + "</h4>" +
+                                "<h3 class='nomCom'>" + suppArticle(displayNulTxt(tableau[i].cdref[j].nom_vern)) + "</h3>" +
+                                "<h4 class='nomLatin'>" + tableau[i].cdref[j].lb_nom + "</h4>" +
                                 "<img class='w visu' src='" + data2?._embedded?.media[0]?._links?.thumbnailFile?.href + "'>" +
                                 "<legend>Photo : " + data2?._embedded?.media[0]?.copyright + "</legend>" +
 
@@ -220,11 +221,16 @@
                             })
                             .always(function() {
                                 supp();
+                                nomCom();
+
+
+
 
                             });
                     };
                 };
                 card();
+
             };
 
             var url = "https://observatoire-fauna.fr/api/sudouest_especes_menacees_autour_ma_commune?commune=" + locCode;
@@ -332,31 +338,27 @@
 
 <script>
     /**
-     * Sert à supprimer le bloc image
-     * et légende si 'undifined'
+     * Sert à supprimer le bloc image et légende si 'undifined'
      */
     function supp() {
         var legend = document.querySelectorAll("legend");
         var image = document.querySelectorAll(".w");
         // console.log(image.length);
         for (let g = 0; g < image.length; g++) {
-            if (image[g].src == "https://infographie.sudouest.fr/Especes/undefined") {
-                // if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
+            // if (image[g].src == "https://infographie.sudouest.fr/Especes/undefined") {
+            if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
                 // if (image[g].src == "https://superchick.fr/Especes/undefined") {
-                console.log(image[g].src);
                 image[g].style.display = "none";
                 legend[g].style.display = "none";
             }
         }
     }
     /**
-     * Fin
+     * FIN - Sert à supprimer le bloc image et légende si 'undifined'
      */
 
     /**
-     * Sert à appeler la class Null
-     * quand les données des enjeux
-     * sont null
+     * Sert à appeler la class 'NonEvaluee' quand les données des enjeux sont null 
      */
     function displayNul(str) {
         if (str === null) {
@@ -366,13 +368,11 @@
         }
     };
     /**
-     * Fin
+     * FIN - Sert à appeler la class 'NonEvaluee' quand les données des enjeux sont null
      */
 
     /**
-     * Sert à afficher Null
-     * quand les données des enjeux
-     * sont null
+     * Sert à afficher 'Non évaluée' quand les données des enjeux sont null dans le innerHTML
      */
     function displayNulTxt(str) {
         if (str === null) {
@@ -382,13 +382,28 @@
         }
     };
     /**
-     * Fin
+     * FIN - Sert à afficher 'Non évaluée' quand les données des enjeux sont null dans le innerHTML
      */
 
     /**
-     * Sert à afficher Null
-     * quand les données des enjeux
-     * sont null
+     * Sert à intervertir le nom commun avec le nom latin quand nom commun null
+     */
+    function nomCom() {
+        var nomLatin = document.getElementsByClassName('nomLatin');
+        var nomCom = document.getElementsByClassName('nomCom');
+        for (let v = 0; v < nomCom.length; v++) {
+            if (nomCom[v].innerHTML === 'Non évaluée') {
+                nomCom[v].innerHTML = nomLatin[v].innerHTML;
+                nomLatin[v].style.display = "none";
+            }
+        }
+    }
+    /**
+     * FIN - Sert à intervertir le nom commun avec le nom latin quand nom commun null
+     */
+
+    /**
+     * Sert à afficher la légende correspondant aux pictos
      */
     function menace(str) {
         if (str === 'EX') {
@@ -420,39 +435,6 @@
         }
     };
     /**
-     * Fin
+     * Fin - Sert à afficher la légende correspondant aux pictos
      */
-
-
-
-
-    // function mergeSort(arr) {
-    //     if (arr.length <= 1) {
-    //         return arr;
-    //     }
-
-    //     const middle = Math.floor(arr.length / 2);
-    //     const left = arr.slice(0, middle);
-    //     const right = arr.slice(middle);
-
-    //     return merge(mergeSort(left), mergeSort(right));
-    // }
-
-    // function merge(left, right) {
-    //     let result = [];
-    //     let leftIndex = 0;
-    //     let rightIndex = 0;
-
-    //     while (leftIndex < left.length && rightIndex < right.length) {
-    //         if (left[leftIndex] < right[rightIndex]) {
-    //             result.push(left[leftIndex]);
-    //             leftIndex++;
-    //         } else {
-    //             result.push(right[rightIndex]);
-    //             rightIndex++;
-    //         }
-    //     }
-
-    //     return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
-    // }
 </script>

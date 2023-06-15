@@ -153,6 +153,7 @@ section {
 }
 
 .linkB {
+  text-align: left;
   border-style: none;
   background-color: white;
   padding: 0px;
@@ -310,6 +311,7 @@ p {
 }
 
 .avSource {
+  line-height: 22px;
   color: black;
   background-color: #ffffff6e;
   padding: 10px;
