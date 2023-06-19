@@ -24,7 +24,7 @@
         include(dirname(__FILE__) . '/includes/ddc.php');
         include(dirname(__FILE__) . '/includes/Apostrophe.php');
 
-        @$loc = apostropheencode($_POST['loc']);
+       @$loc = apostropheencode($_POST['loc']);
         @$dep = $_POST['Dep'];
 
         // echo $loc . '<br>';
@@ -49,15 +49,15 @@
 
         $Rencxx = $connexion->query($longCommune);
         $dataxx = $Rencxx->fetch();
-
+        
         if ($commune == true) {
-            echo '<h2><mark>Les espèces observées près de ' . $commune . '</mark></h2>';
+            echo '<h2><mark>Les espèces observées près de ' . apostrophedecode($commune) . '</mark></h2>';
             echo '<h5>Dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
             echo "<input id='dep'  style='display:none' type='text' value=" . $dep . ">";
-            echo "<input id='loc'  style='display:none;' type='text' value='$commune'>";
+            echo "<input id='loc'  style='display:block;' type='text' value='" . apostrophedecode($commune) . "'>";
             echo '<div id="viz" class="map" >
                 <svg id="map">
                 </svg>
