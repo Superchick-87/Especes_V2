@@ -24,7 +24,7 @@
         include(dirname(__FILE__) . '/includes/ddc.php');
         include(dirname(__FILE__) . '/includes/Apostrophe.php');
 
-       @$loc = apostropheencode($_POST['loc']);
+        @$loc = apostropheencode($_POST['loc']);
         @$dep = $_POST['Dep'];
 
         // echo $loc . '<br>';
@@ -49,7 +49,7 @@
 
         $Rencxx = $connexion->query($longCommune);
         $dataxx = $Rencxx->fetch();
-        
+
         if ($commune == true) {
             echo '<h2><mark>Les espèces observées près de ' . apostrophedecode($commune) . '</mark></h2>';
             echo '<h5>Dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
@@ -57,7 +57,7 @@
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
             echo "<input id='dep'  style='display:none' type='text' value=" . $dep . ">";
-            echo "<input id='loc'  style='display:block;' type='text' value='" . apostrophedecode($commune) . "'>";
+            echo "<input id='loc'  style='display:none;' type='text' value='" . apostrophedecode($commune) . "'>";
             echo '<div id="viz" class="map" >
                 <svg id="map">
                 </svg>
@@ -73,7 +73,14 @@
         ?>
     </div>
     </br>
-    <p class="avSource">Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
+    <div class="avSource">
+        <h3>Comprendre les indicateurs</h3>
+        <hr>
+        <img src="images/notice_01.svg" alt="">
+        <img src="images/notice_02.svg" alt="">
+        <hr>
+        <p>Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
+    </div>
     <section id="solutions" style="display: block;">
         <button class="accordion">Sources</button>
         <div class="panel flex-container">
@@ -128,16 +135,16 @@
                         cdref[l++] = data[key][key2];
                     })
 
-                    tableau[k++] = {
-                        'nom': key,
-                        'cdref': cdref.sort(function(a, b) {
-                            return b.nb_obs - a.nb_obs;
-                        })
-                    };
                     // tableau[k++] = {
                     //     'nom': key,
-                    //     'cdref': cdref
+                    //     'cdref': cdref.sort(function(a, b) {
+                    //         return b.nb_obs - a.nb_obs;
+                    //     })
                     // };
+                    tableau[k++] = {
+                        'nom': key,
+                        'cdref': cdref
+                    };
                 });
                 console.log(tableau)
 
@@ -178,7 +185,9 @@
                             // console.log(tableau[i].cdref[j].cd_ref)
                             // if (tableau[i].cdref[j].enjeu_conservation == 'Très fort') {
 
-                                tableau[i].cdref.sort(function(a,b){return b.nb_obs - a.nb_obs;});
+                            tableau[i].cdref.sort(function(a, b) {
+                                return b.nb_obs - a.nb_obs;
+                            });
                             mat[i].innerHTML +=
                                 '<li>' +
                                 "<h3 class='nomCom'>" + suppArticle(displayNulTxt(tableau[i].cdref[j].nom_vern)) + "</h3>" +
