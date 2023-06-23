@@ -57,7 +57,7 @@
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
             echo "<input id='dep'  style='display:none' type='text' value=" . $dep . ">";
-            echo "<input id='loc'  style='display:none;' type='text' value='" . apostrophedecode($commune) . "'>";
+            echo '<input id="loc"  style="display:none;" type="text" value="'.apostrophedecode($commune).'">';
             echo '<div id="viz" class="map" >
                 <svg id="map">
                 </svg>
@@ -76,8 +76,11 @@
     <div class="avSource">
         <h3>Comprendre les indicateurs</h3>
         <hr>
-        <img src="images/notice_01.svg" alt="">
-        <img src="images/notice_02.svg" alt="">
+        <div class="notice">
+        <img class="noticeImg" src="images/notice_01.svg" alt="Notice 1">
+        <img class="noticeImg" src="images/notice_02.svg" alt="Notice 2">
+        <img class="noticeImg" src="images/notice_03.svg" alt="Notice 3">
+        </div>
         <hr>
         <p>Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
     </div>
@@ -355,8 +358,8 @@
         // console.log(image.length);
         for (let g = 0; g < image.length; g++) {
             // if (image[g].src == "https://infographie.sudouest.fr/Especes/undefined") {
-            if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
-                // if (image[g].src == "https://superchick.fr/Especes/undefined") {
+            // if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
+                if (image[g].src == "https://superchick.fr/Especes/undefined") {
                 image[g].style.display = "none";
                 legend[g].style.display = "none";
             }
