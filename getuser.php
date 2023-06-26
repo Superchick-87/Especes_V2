@@ -211,9 +211,9 @@
                             // console.log(tableau[i].cdref[j].cd_ref)
                             // if (tableau[i].cdref[j].enjeu_conservation == 'Très fort') {
                                
-                            tableau[i].cdref.sort(function(a, b) {
-                                return b.nb_obs - a.nb_obs;
-                            });
+                            // tableau[i].cdref.sort(function(a, b) {
+                            //     return b.nb_obs - a.nb_obs;
+                            // });
                             mat[i].innerHTML +=
                                 '<li>' +
                                 "<h3 class='nomCom'>" + suppArticle(displayNulTxt(tableau[i].cdref[j].nom_vern)) + "</h3>" +
