@@ -25,25 +25,28 @@
     include(dirname(__FILE__) . '/includes/accesserver.php');
     include(dirname(__FILE__) . '/includes/Apostrophe.php');
     ?>
-    <h1><mark>Ipsum dolor sit amet consectetur</mark></h1>
-    <h3>Découvrez les espèces observées par les chercheurs dans un rayon de 5 km autour de la commune depuis janvier 2000.</h3>
+    <h1><mark>Découvrez les espèces sauvages observées dans les communes de Nouvelle-Aquitaine.</mark></h1>
     </br>
-    <h3>Rechercher ndndnnd</h3>
+    <h3>Indiquez le nom d'une commune</h3>
     <?php
     include(dirname(__FILE__) . '/includes/search.php');
     ?>
-    <p>Ipsum dolor sit amet consectetur adipisicing elit. Sit inventore nihil sed ipsam similique obcaecati commodi quas impedit.</p>
+    <p>Saisissez les premières lettres d'une commune de Nouvelle-Aquitaine pour faire votre choix dans la liste qui s'affiche. Puis cliquez sur "Je lance la recherche" pour découvrir les espèces sauvages observées dans cette commune.</p>
     <?php
     ?>
-    <section id="solutions" style="display: block;">
+    <!-- <section id="solutions" style="display: block;">
       <button class="accordion">- Sources -</button>
       <div class="panel flex-container">
         <?php
         include(dirname(__FILE__) . '/includes/sources.php');
         ?>
       </div>
-    </section>
+    </section> -->
   </div>
+  <div class="blocLogo">
+      <img class="logo" src="images/Logo_LesVigies.png" alt="Les Vigies">
+      <img class="logo" src="images/Logo_SO.png" alt="Sud Ouest">
+    </div>
 </body>
 <script src="js/accordeon.js"></script>
 <script>

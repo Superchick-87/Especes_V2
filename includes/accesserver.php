@@ -1,18 +1,18 @@
 <?php
 
 // local
-// $database = "Consultations";
-// $table = 'geoAssoc';
-// $serveur = "localhost";
-// $login = "root";
-// $pass = "root";
+$database = "Consultations";
+$table = 'geoAssoc';
+$serveur = "localhost";
+$login = "root";
+$pass = "root";
 
 // superchick !
-$database = "superchicj955";
-$table = 'geoAssoc';
-$serveur = "superchicj955.mysql.db";
-$login = "superchicj955";
-$pass = "g9KztZMkzRCN";
+// $database = "superchicj955";
+// $table = 'geoAssoc';
+// $serveur = "superchicj955.mysql.db";
+// $login = "superchicj955";
+// $pass = "g9KztZMkzRCN";
 
 
 // Infographie !

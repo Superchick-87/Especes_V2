@@ -19,6 +19,7 @@
 <body>
     <div class="fond"></div>
     <div class="content">
+
         <?php
         include(dirname(__FILE__) . '/includes/accesserver.php');
         include(dirname(__FILE__) . '/includes/ddc.php');
@@ -49,19 +50,29 @@
 
         $Rencxx = $connexion->query($longCommune);
         $dataxx = $Rencxx->fetch();
-
+        $mm = '';
         if ($commune == true) {
-            echo '<h2><mark>Les espèces observées près de ' . apostrophedecode($commune) . '</mark></h2>';
+            // echo '<span id="nbreTotal"></span>';
+            // echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
+            echo '<h2><mark><span id="nbreTotal"></span><span> espèces observées près de ' . apostrophedecode($commune) . '</span></mark></h2>';
             echo '<h5>Dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
             echo "<input id='dep'  style='display:none' type='text' value=" . $dep . ">";
             echo '<input id="loc"  style="display:none;" type="text" value="'.apostrophedecode($commune).'">';
-            echo '<div id="viz" class="map" >
-                <svg id="map">
-                </svg>
-            </div>
+            echo '
+            
+            <section id="solutions" style="display: block;">
+                <button class="accordion">Afficher la carte</button>
+                <div class="panel flex-container">
+                        <div id="viz" class="map" >
+                            <svg id="map">
+                            </svg>
+                        </div>           
+                </div>
+                </section>
+          
     <div style="display:flex; justify-content: center;">
         <input id="stopButton" onclick="mutePage()" type="button" value="" class="son sonOn"/>
         <input id="playButton" onclick="muteNoPage()" type="button" value="" class="son sonOff"/>
@@ -75,6 +86,7 @@
     </br>
     <div class="avSource">
         <h3>Comprendre les indicateurs</h3>
+        <h5>Le statut de chaque espèce est déterminé selon les critères des listes rouges de l'Union Internationale pour la Conservation de la Nature (UICN).</h5>
         <hr>
         <div class="notice">
         <img class="noticeImg" src="images/notice_01.svg" alt="Notice 1">
@@ -82,10 +94,16 @@
         <img class="noticeImg" src="images/notice_03.svg" alt="Notice 3">
         </div>
         <hr>
-        <p>Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
+        <div class="container">
+        <p>L'enjeu de conservation de chaque espèce résulte du croisement entre sa valeur patrimoniale et un risque ou une menace identifiée (habitat, seuils environnementaux, interdépendance avec d'autres espèces, capacité à se déplacer sur de nouveaux territoires, etc). Il est évalué pour chaque espèce selon une typologie allant de "Faible" à "Très fort".</p>
+        </div>
+        <hr>
+        <!-- <div class="container"> -->
+        <p class="textPlus">Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
+        <!-- </div> -->
     </div>
     <section id="solutions" style="display: block;">
-        <button class="accordion">Sources</button>
+        <button class="accordion">Sources et crédits</button>
         <div class="panel flex-container">
             <?php
             include(dirname(__FILE__) . '/includes/sources.php');
@@ -112,6 +130,10 @@
         ?>
     </div>
 </section>
+<div class="blocLogo">
+      <img class="logo" src="images/Logo_LesVigies.png" alt="Les Vigies">
+      <img class="logo" src="images/Logo_SO.png" alt="Sud Ouest">
+    </div>
 </body>
 
 </html>
@@ -122,7 +144,7 @@
         var locCode = document.getElementById('CodeCommune').value;
         if (locCode != "") {
             // console.log(locCode);
-
+            
             var callBackSuccess = function(data) {
                 console.log(data);
                 var element = document.getElementById('txtHint');
@@ -151,7 +173,7 @@
                 });
                 console.log(tableau)
 
-
+                
                 for (let i = 0; i <= tableau.length - 1; i++) {
                     const matches = document.querySelector('.x');
                     matches.innerHTML +=
@@ -172,13 +194,14 @@
                         '</div>' +
                         '<div class="card-flap flap2">' +
                         '<div class="card-actions">' +
-                        '<a class="btn" href="#">Replier</a>' +
+                        '<a class="btn" href="#">Replier pour voir une autre catégorie</a>' +
                         '</div>' +
                         '</div>' +
                         '<div style="height:70px;">' +
                         '</div>' +
                         '</div>';
                     var n = 0;
+                  
                     for (let j = 0; j <= tableau[i].cdref.length - 1; j++) {
                         var url2 = "https://taxref.mnhn.fr/api/taxa/" + tableau[i].cdref[j].cd_ref + "/media";
                         var callBackSuccess2 = function(data2) {
@@ -187,7 +210,7 @@
                             // console.log(tableau[i].cdref[j].uri_fiche_espece);
                             // console.log(tableau[i].cdref[j].cd_ref)
                             // if (tableau[i].cdref[j].enjeu_conservation == 'Très fort') {
-
+                               
                             tableau[i].cdref.sort(function(a, b) {
                                 return b.nb_obs - a.nb_obs;
                             });
@@ -226,7 +249,7 @@
                                 '</div>';
                             // }
                         }
-
+                       
                         $.get(url2, callBackSuccess2).done(function() {})
                             .fail(function() {
                                 // alert("erreur");
@@ -234,15 +257,17 @@
                             .always(function() {
                                 supp();
                                 nomCom();
-
-
-
-
+                                const nomCo = document.querySelectorAll(".nomCom");
+                                var elem = document.getElementById("nbreTotal");
+                                elem.innerHTML = nomCo.length;
                             });
+
+
                     };
+                    
                 };
                 card();
-
+               
             };
 
             var url = "https://observatoire-fauna.fr/api/sudouest_especes_menacees_autour_ma_commune?commune=" + locCode;
@@ -253,9 +278,9 @@
                 .always(function() {
 
                 });
+                
         }
     }
-
     showData();
     displayNul();
 </script>
@@ -283,6 +308,8 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
 <script>
+     
+
     /**
      * agrège le son
      */
@@ -357,9 +384,9 @@
         var image = document.querySelectorAll(".w");
         // console.log(image.length);
         for (let g = 0; g < image.length; g++) {
-            // if (image[g].src == "https://infographie.sudouest.fr/Especes/undefined") {
-            // if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
-                if (image[g].src == "https://superchick.fr/Especes/undefined") {
+            // if (image[g].src == "https://infographie.sudouest.fr/Les-Vigies-des-especes-a-proteger/undefined") {
+            if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
+                // if (image[g].src == "https://superchick.fr/Especes/undefined") {
                 image[g].style.display = "none";
                 legend[g].style.display = "none";
             }
@@ -410,6 +437,7 @@
             }
         }
     }
+    
     /**
      * FIN - Sert à intervertir le nom commun avec le nom latin quand nom commun null
      */

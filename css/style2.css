@@ -24,7 +24,22 @@ body {
   height: 100vh;
   width: 100vw;
 }
-
+.logo{
+  height: 50px;
+  height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.blocLogo{
+  background-color: white;
+    width: 100%;
+    /* margin: 0px auto; */
+    padding: 10px;
+    position: fixed;
+    top: 37px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 .blanc {
   color: white;
 }
@@ -35,6 +50,7 @@ body {
   /* margin-top: 5rem; */
   transform: translateX(-50%);
   width: 95%;
+  top: 70px;
 }
 
 h1,
@@ -73,10 +89,12 @@ h5 {
 legend {
   margin-bottom: 10px;
   font-style: italic;
+  word-wrap: break-word;
 }
 
 section {
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
+    /* margin-top: 40px; */
 }
 
 .notice{
@@ -292,19 +310,25 @@ p {
 }
 
 .picto {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 60px;
   /* border-radius: 50%; */
   z-index: 0;
   background-size: cover;
   background-position: 50% 0%;
   object-fit: cover;
-  /* filter: grayscale(100%);
-  -webkit-filter: grayscale(100%); */
-  /* filter: sepia(100%);
-  -webkit-filter: sepia(100%); */
 }
-
+.container {
+  column-count: 2;
+    /* padding-left: 30px;
+    padding-right: 30px; */
+    /* column-rule-style: dotted; */
+    /* word-wrap: break-word; */
+}
+.textPlus{
+  padding-left: 30px;
+    padding-right: 30px;
+}
 hr {
   border-top: 1px dotted;
   border-color: black;
@@ -325,8 +349,10 @@ p {
   color: black;
   background-color: #ffffff6e;
   padding: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   border-radius: 10px;
+  /* width: 80%; */
+  margin: 0px auto 30px;
 }
 
 /*  Formulaire ------------------------------------------------------------------------------  */
@@ -509,7 +535,17 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* Son */
-.son,
+.son {
+  width: 50px;
+  height: 50px;
+  background-color: #ffffffb0;
+  border: solid 1px #000;
+  border-radius: 50%;
+  margin: 0px auto 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30px;
+}
 .rechercheMob {
   width: 70px;
   height: 70px;
@@ -521,7 +557,6 @@ input[type="search"]::-webkit-search-cancel-button {
   background-position: center;
   background-size: 50px;
 }
-
 .sonOn {
   background-image: url(../images/sonOff.png);
 }
@@ -538,6 +573,19 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 @media (min-width: 600px) {
+  .fondSource{
+    width: 80%;
+   }
+  .container {
+    column-count: 3;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* column-rule-style: dotted; */
+      /* word-wrap: break-word; */
+  }
+
+  .avSource {width: 80%;
+  }
   #recherceMob {
     display: none;
   }
@@ -769,14 +817,19 @@ input[type="search"]::-webkit-search-cancel-button {
 .active:after {
   content: "\2212";
 }
-
+.fondSource{
+  border-radius: 10px;
+  padding: 18px;
+  background-color: #ffffffc7;
+  margin: 10px auto;
+}
 .panel {
   padding: 0 18px;
-  background-color: #ffffffc7;
+  /* background-color: #ffffffc7; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  width: max-content;
+  /* width: 80%; */
   margin: 10px auto;
 }
 
