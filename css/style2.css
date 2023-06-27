@@ -61,7 +61,12 @@ h5,
 h6 {
   font-family: 'Bebas+Neue', serif;
 }
-
+.titreFdBlanc{
+  margin-top: 0px;
+}
+h2{
+  margin-bottom: 10px;
+}
 h3 {
   font-size: 1.6em;
   line-height: 1.3em;
@@ -81,7 +86,8 @@ h4 {
 h5 {
   font-size: 1.2em;
   font-weight: 200;
-  margin-top: 1em;
+  /* margin-top: 1em; */
+  margin-top: 0em;
   margin-bottom: 1em;
   font-weight: bold;
 }
@@ -273,7 +279,7 @@ section {
 mark {
   /* padding-left: 10px;
   padding-right: 10px; */
-  background-color: yellowgreen;
+  background-color: rgb(255, 255, 255);
   font-size: 1.2em;
 }
 
@@ -535,16 +541,16 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 /* Son */
-.son {
+.son,.carte {
   width: 50px;
   height: 50px;
   background-color: #ffffffb0;
   border: solid 1px #000;
   border-radius: 50%;
-  margin: 0px auto 10px;
+  /* margin: 0px auto 10px; */
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 30px;
+  background-size: 40px;
 }
 .rechercheMob {
   width: 70px;
@@ -557,6 +563,12 @@ input[type="search"]::-webkit-search-cancel-button {
   background-position: center;
   background-size: 50px;
 }
+.carte {
+  background-image: url(../images/map.png);
+}
+/* .carteOff {
+  background-image: url(../images/sonOn.png);
+} */
 .sonOn {
   background-image: url(../images/sonOff.png);
 }
@@ -573,9 +585,9 @@ input[type="search"]::-webkit-search-cancel-button {
 
 
 @media (min-width: 600px) {
-  .fondSource{
-    width: 80%;
-   }
+  .fondSource{ 
+    width: 80%; 
+    }
   .container {
     column-count: 3;
     padding-left: 30px;
@@ -600,7 +612,7 @@ input[type="search"]::-webkit-search-cancel-button {
     color: black;
     border-radius: 8px;
     height: 34px;
-    width: 158px;
+    width: max-content;
     font-size: 15px;
     cursor: pointer;
   }
@@ -785,31 +797,25 @@ input[type="search"]::-webkit-search-cancel-button {
 /*  Accordeon
   ------------------------------------------------------------------------------------------  */
 .accordion {
-  color: white;
-  background-color: yellowgreen;
-  /* color: #444; */
+  color: black;
+  background-color: #ffffffb0;
   cursor: pointer;
   padding: 9px;
-  /*width: 100%;*/
-  border: 1px solid yellowgreen;
   text-align: center;
   outline: none;
   font-size: 15px;
   line-height: 25px;
-  /*font-weight:inherit; */
-  /* color:#fff; */
   transition: 0.4s;
+  border: none;
 }
 
 .active,
 .accordion:hover {
-  background-color: rgba(153, 205, 50, 0.616);
+  background-color: rgb(255, 255, 255);
 }
 
 .accordion:after {
-  /*content: '\002B';*/
   color: #fff;
-  /*font-weight: bold;*/
   float: right;
   margin-left: 5px;
 }
@@ -822,15 +828,14 @@ input[type="search"]::-webkit-search-cancel-button {
   padding: 18px;
   background-color: #ffffffc7;
   margin: 10px auto;
+  /* width: 90%; */
 }
 .panel {
   padding: 0 18px;
-  /* background-color: #ffffffc7; */
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.2s ease-out;
-  /* width: 80%; */
-  margin: 10px auto;
+  margin: 0px auto 10px;
 }
 
 * {
@@ -848,4 +853,28 @@ input[type="search"]::-webkit-search-cancel-button {
   /*Set the size of the magnifier glass:*/
   width: 100px;
   height: 100px;
+}
+.cRetour {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  padding: 10px;
+  line-height: 42px;
+  font-size: 43px;
+  text-align: center;
+  color: #ffffffd5;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid black;
+  z-index: 99999;
+  transition: all ease-in 0.2s;
+  position: fixed;
+  cursor: pointer;
+  bottom: 1em;
+  right: 20px;
+  display: none;
+}
+.cRetour:before{ content: "\25b2"; }
+.cRetour:hover{
+background:rgba(0, 0, 0, 1);
+transition:all ease-in 0.2s;
 }

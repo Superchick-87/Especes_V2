@@ -14,9 +14,38 @@
     <link rel="stylesheet" href="css/style2.css">
     <link href="https://unpkg.com/pattern.css" rel="stylesheet">
     <title>Espèces</title>
+
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
+
+
 </head>
 
 <body>
+    <script>            
+    jQuery(document).ready(function() {
+      var duration = 500;
+      jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > 100) {
+          // Si un défillement de 100 pixels ou plus.
+          // Ajoute le bouton
+          jQuery('.cRetour').fadeIn(duration);
+        } else {
+          // Sinon enlève le bouton
+          jQuery('.cRetour').fadeOut(duration);
+        }
+      });
+                    
+      jQuery('.cRetour').click(function(event) {
+        // Un clic provoque le retour en haut animé.
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+      })
+    });
+    </script>
+
+
+
     <div class="fond"></div>
     <div class="content">
 
@@ -54,29 +83,29 @@
         if ($commune == true) {
             // echo '<span id="nbreTotal"></span>';
             // echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
-            echo '<h2><mark><span id="nbreTotal"></span><span> espèces observées près de ' . apostrophedecode($commune) . '</span></mark></h2>';
-            echo '<h5>Dans un rayon de 5 km autour de la commune depuis janvier 2000.</h5>';
+            echo '<h2 class="titreFdBlanc"><mark><span id="nbreTotal"></span><span> espèces observées près de ' . apostrophedecode($commune) . '</span></mark></h2>';
+            echo '<h5 class="txtMajeur">Dans un rayon de 5 km depuis janvier 2000</h5>';
             echo "<input id='CodeCommune' style='display:none;' type='text' value=" . $data['CodeCommune'] . ">";
             echo "<input id='LatCommune'  style='display:none;' type='text' value=" . $datax['LatCommune'] . ">";
             echo "<input id='LongCommune'  style='display:none' type='text' value=" . $dataxx['LongCommune'] . ">";
             echo "<input id='dep'  style='display:none' type='text' value=" . $dep . ">";
             echo '<input id="loc"  style="display:none;" type="text" value="'.apostrophedecode($commune).'">';
             echo '
+            <input type="button" value="" class="accordion carte"/>
+            <div class="panel flex-container">
+                <div id="viz" class="map" >
+                    <svg id="map">
+                    </svg>
+                </div>           
+            </div>
             
-            <section id="solutions" style="display: block;">
-                <button class="accordion">Afficher la carte</button>
-                <div class="panel flex-container">
-                        <div id="viz" class="map" >
-                            <svg id="map">
-                            </svg>
-                        </div>           
+                <div style="display:flex; justify-content: center;">
+                    <input id="stopButton" onclick="mutePage()" type="button" value="" class="son sonOn"/>
+                    <input id="playButton" onclick="muteNoPage()" type="button" value="" class="son sonOff"/>
                 </div>
-                </section>
-          
-    <div style="display:flex; justify-content: center;">
-        <input id="stopButton" onclick="mutePage()" type="button" value="" class="son sonOn"/>
-        <input id="playButton" onclick="muteNoPage()" type="button" value="" class="son sonOff"/>
-    </div>
+           </br>
+           
+            
     <div class="x row dashboard-cards"></div></br>
     <div id="txtHint">
     <h3 class="blanc">Changer de commune</h3>';
@@ -134,6 +163,8 @@
       <img class="logo" src="images/Logo_LesVigies.png" alt="Les Vigies">
       <img class="logo" src="images/Logo_SO.png" alt="Sud Ouest">
     </div>
+
+    <div class="cRetour"></div>
 </body>
 
 </html>
@@ -283,6 +314,7 @@
     }
     showData();
     displayNul();
+
 </script>
 
 <script src="js/accordeon.js"></script>
@@ -308,7 +340,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
 
 <script>
-     
+
 
     /**
      * agrège le son
