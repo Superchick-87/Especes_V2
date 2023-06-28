@@ -131,6 +131,12 @@
         <p class="textPlus">Les données diffusées reflètent l’état d’avancement des connaissances partagées et disponibles dans le cadre de la mise en œuvre du Système d'information de l'inventaire du patrimoine (SINP). Elles ne sauraient être considérées comme exhaustives. Ces données font l'objet d'un processus de validation : seules celles considérées certaines ou probables sont diffusées, ainsi que celles pour lesquelles la méthode n'est pas applicable.</p>
         <!-- </div> -->
     </div>
+    <div class="txtMajeur">
+        <img src="images/mail.png" alt="Mail">
+        <p>Votre avis nous intéresse !</p>
+        <p>infographies@sudouest.fr</p>
+    </div>
+        </br>
     <section id="solutions" style="display: block;">
         <button class="accordion">Sources et crédits</button>
         <div class="panel flex-container">
@@ -139,6 +145,7 @@
             ?>
         </div>
     </section>
+    </br>
     </div>
     </div>
 <?php
@@ -416,8 +423,8 @@
         var image = document.querySelectorAll(".w");
         // console.log(image.length);
         for (let g = 0; g < image.length; g++) {
-            // if (image[g].src == "https://infographie.sudouest.fr/Les-Vigies-des-especes-a-proteger/undefined") {
-            if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
+            if (image[g].src == "https://infographie.sudouest.fr/Les-Vigies-des-especes-a-proteger/undefined") {
+            // if (image[g].src == "http://localhost:8888/Especes_V2/undefined") {
                 // if (image[g].src == "https://superchick.fr/Especes/undefined") {
                 image[g].style.display = "none";
                 legend[g].style.display = "none";
