@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="css/jquery-ui.css">
   <link rel="stylesheet" href="css/style2.css">
   <link href="https://unpkg.com/pattern.css" rel="stylesheet">
-  <title>Espèces</title>
+  <title>Les vigies, découvrez les espèces à protéger dans votre commune en Nouvelle-Aquitaine [par la rédaction de Sud Ouest]</title>
 </head>
 
 <body>
@@ -44,9 +44,9 @@
     </section> -->
   </div>
   <div class="blocLogo">
-      <img class="logo" src="images/Logo_LesVigies.png" alt="Les Vigies">
-      <img class="logo" src="images/Logo_SO.png" alt="Sud Ouest">
-    </div>
+    <img class="logo" src="images/Logo_LesVigies.png" alt="Les Vigies">
+    <img class="logo" src="images/Logo_SO.png" alt="Sud Ouest">
+  </div>
 </body>
 <script src="js/accordeon.js"></script>
 <script>

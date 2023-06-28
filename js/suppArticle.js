@@ -9,3 +9,8 @@ function suppArticle(strr) {
   strr = strr.replace(" (l')", "");
   return strr;
 }
+
+function nomEsp(strr) {
+  strr = strr.replace("Mammifères (non volant)", "Mammifères (non volants)");
+  return strr;
+}
