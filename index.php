@@ -25,9 +25,10 @@
     include(dirname(__FILE__) . '/includes/accesserver.php');
     include(dirname(__FILE__) . '/includes/Apostrophe.php');
     ?>
-    <h1 class="titreFdBlanc"><mark>Découvrez les espèces sauvages observées dans les communes de Nouvelle-Aquitaine</mark></h1>
-    </br>
-    <h3 class="txtMajeur">Indiquez le nom d'une commune</h3>
+    <h1 class="titreFdBlanc"><mark>Découvrez les espèces sauvages observées près de chez vous</mark></h1>
+    <!-- </br> -->
+    <div class="d1"></div>
+    <h3 class="txtMajeur">Indiquez le nom d'une commune de Nouvelle-Aquitaine</h3>
     <?php
     include(dirname(__FILE__) . '/includes/search.php');
     ?>

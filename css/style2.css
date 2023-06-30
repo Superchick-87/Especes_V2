@@ -26,8 +26,7 @@ body {
 }
 
 .logo {
-  height: 50px;
-  height: 50px;
+  height: 60px;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -38,7 +37,7 @@ body {
   /* margin: 0px auto; */
   padding: 10px;
   position: fixed;
-  top: 37px;
+  top: 41px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -66,7 +65,7 @@ h6 {
 }
 
 .titreFdBlanc {
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 h2 {
@@ -74,7 +73,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.6em;
+  font-size: 1.5em;
   line-height: 1.3em;
   margin-top: 10px;
   margin-bottom: 8px;
@@ -591,11 +590,11 @@ input[type="search"]::-webkit-search-cancel-button {
   background-image: url(../images/sonOn.png);
 } */
 .sonOn {
-  background-image: url(../images/sonOff.png);
+  background-image: url(../images/sonOn.png);
 }
 
 .sonOff {
-  background-image: url(../images/sonOn.png);
+  background-image: url(../images/sonOff.png);
 }
 
 .sonOn:hover,
@@ -604,8 +603,84 @@ input[type="search"]::-webkit-search-cancel-button {
   /* color: #6c6a6a; */
 }
 
+.d1 {
+  width: 100px;
+  height: 100px;
+  margin: 0px auto;
+  /* background-color: #ededed54; */
+  background-size: contain;
+  animation: fondu 15s ease-in-out infinite both;
+}
+
+/* .d1:hover {
+  animation-play-state: paused;
+} */
+
+@keyframes fondu {
+  0% {
+    background-image: url("../images/anim/Gif01.png");
+  }
+
+  7.7% {
+    background-image: url("../images/anim/Gif02.png");
+  }
+
+  15.4% {
+    background-image: url("../images/anim/Gif03.png");
+  }
+
+  23.1% {
+    background-image: url("../images/anim/Gif04.png");
+  }
+
+  30.8% {
+    background-image: url("../images/anim/Gif05.png");
+  }
+
+  38.5% {
+    background-image: url("../images/anim/Gif06.png");
+  }
+
+  46.2% {
+    background-image: url("../images/anim/Gif07.png");
+  }
+
+  53.9% {
+    background-image: url("../images/anim/Gif08.png");
+  }
+
+  61.6% {
+    background-image: url("../images/anim/Gif09.png");
+  }
+
+  69.3% {
+    background-image: url("../images/anim/Gif10.png");
+  }
+
+  77% {
+    background-image: url("../images/anim/Gif11.png");
+  }
+
+  84.7% {
+    background-image: url("../images/anim/Gif12.png");
+  }
+
+  92.4% {
+    background-image: url("../images/anim/Gif13.png");
+  }
+
+  100% {
+    background-image: url("../images/anim/Gif14.png");
+  }
+
+}
 
 @media (min-width: 600px) {
+  .d1 {
+    width: 140px;
+    height: 140px;
+    margin: 20px auto;
+  }
 
   h1,
   .txtMajeur {
